@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Trades &amp; Field Services — Submit Your Availability</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="./manifest.json" />
+  <meta name="theme-color" content="#0f0500" />
+
+  <!-- iOS PWA Support -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="apple-touch-icon" href="./assets/icon-192.png" />
+
+  <!-- Styles (includes font import) -->
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+
+  <!-- ── STICKY HEADER ── -->
+  <header class="sc-header">
+    <div class="sc-brand">
+      <div class="sc-logo">🔧</div>
+      <div>
+        <div class="sc-brand-name">Trades &amp; Field Services Roster</div>
+        <div class="sc-brand-sub">WORKER AVAILABILITY FORM</div>
+      </div>
+    </div>
+    <div class="sc-version">v2.0 &middot; PWA</div>
+  </header>
+
+  <!-- ── FORM AREA ── -->
+  <div id="sc-form-area">
+
+    <!-- Hero -->
+    <div class="sc-hero">
+      <div class="sc-eyebrow">Tell us when you&#8217;re available on site</div>
+      <h2>Submit Your <em>Weekly</em><br>Availability</h2>
+      <p class="sc-hero-desc">
+        Fill in your details, set your availability for each day, then click the button &mdash;
+        your <code>.json</code> file downloads automatically and your email app opens ready to
+        send to your site manager.
+      </p>
+    </div>
+
+    <!-- How it works -->
+    <div class="sc-how">
+      <div class="sc-how-inner">
+        <div class="sc-how-step">
+          <div class="sc-how-num">1</div>
+          <div class="sc-how-text">
+            <strong>Fill in this form</strong>
+            <span>Enter your details and set your availability for each day of the week.</span>
+          </div>
+        </div>
+        <div class="sc-how-step">
+          <div class="sc-how-num">2</div>
+          <div class="sc-how-text">
+            <strong>Click Submit</strong>
+            <span>Your availability <code>.json</code> file downloads to your device automatically.</span>
+          </div>
+        </div>
+        <div class="sc-how-step">
+          <div class="sc-how-num">3</div>
+          <div class="sc-how-text">
+            <strong>Attach &amp; Send</strong>
+            <span>An email to your site manager opens &mdash; attach the file and hit Send.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main class="sc-main">
+
+      <!-- SETUP CARD -->
+      <div class="sc-card">
+        <div class="sc-card-head">
+          <div class="sc-card-icon">⚙️</div>
+          <div>
+            <div class="sc-card-title">Manager / Roster Coordinator Setup</div>
+            <div class="sc-card-sub">Pre-filled by the site manager before distribution to workers</div>
+          </div>
+        </div>
+        <div class="sc-config-banner">
+          <div class="sc-config-banner-icon">ℹ️</div>
+          <div>Enter the site manager's or roster coordinator's email address. This is who your availability file will be sent to. If you're unsure, ask your foreperson or site manager.</div>
+        </div>
+        <div class="sc-group">
+          <label class="sc-label" for="sc-manager-email">
+            Send To: Site Manager / Roster Coordinator Email <span class="sc-required">*</span>
+          </label>
+          <input class="sc-input" type="email" id="sc-manager-email"
+            placeholder="Enter manager's email address" maxlength="150" />
+          <div class="sc-err" id="sc-manager-email-err"></div>
+        </div>
+      </div>
+
+      <!-- WORKER DETAILS CARD -->
+      <div class="sc-card">
+        <div class="sc-card-head">
+          <div class="sc-card-icon">🔧</div>
+          <div>
+            <div class="sc-card-title">Your Details</div>
+            <div class="sc-card-sub">Enter your name exactly as it appears on the site roster</div>
+          </div>
+        </div>
+        <div class="sc-grid">
+
+          <div class="sc-group full">
+            <label class="sc-label" for="sc-name">Full Name <span class="sc-required">*</span></label>
+            <input class="sc-input" type="text" id="sc-name"
+              placeholder="e.g. Marcus Flynn" autocomplete="name" maxlength="100" />
+            <div class="sc-err" id="sc-name-err"></div>
+          </div>
+
+          <div class="sc-group">
+            <label class="sc-label" for="sc-email">Your Email <span class="sc-required">*</span></label>
+            <input class="sc-input" type="email" id="sc-email"
+              placeholder="marcus@trades.com.au" autocomplete="email" maxlength="150" />
+            <div class="sc-err" id="sc-email-err"></div>
+          </div>
+
+          <div class="sc-group">
+            <label class="sc-label" for="sc-phone">Phone Number</label>
+            <input class="sc-input" type="tel" id="sc-phone"
+              placeholder="0400 000 000" autocomplete="tel" maxlength="20" />
+          </div>
+
+          <div class="sc-group">
+            <label class="sc-label" for="sc-role">Primary Role <span class="sc-required">*</span></label>
+            <select class="sc-sel" id="sc-role">
+              <option value="">&#x2014; Select your role &#x2014;</option>
+              <option>Site Manager / Foreperson</option>
+              <option>Licensed Electrician</option>
+              <option>Licensed Plumber</option>
+              <option>Carpenter / Joiner</option>
+              <option>Bricklayer / Blocklayer</option>
+              <option>Painter &amp; Decorator</option>
+              <option>Tiler / Stonemason</option>
+              <option>HVAC Technician</option>
+              <option>Labourer / General Hand</option>
+              <option>Apprentice / Trainee</option>
+              <option>Other</option>
+            </select>
+            <div class="sc-err" id="sc-role-err"></div>
+          </div>
+
+          <div class="sc-group">
+            <label class="sc-label" for="sc-basis">Employment Type <span class="sc-required">*</span></label>
+            <select class="sc-sel" id="sc-basis">
+              <option value="">&#x2014; Select type &#x2014;</option>
+              <option value="Full-time">Full-time</option>
+              <option value="Part-time">Part-time</option>
+              <option value="Casual">Casual</option>
+              <option value="Contractor">Contractor</option>
+            </select>
+            <div class="sc-err" id="sc-basis-err"></div>
+          </div>
+
+          <div class="sc-group full">
+            <label class="sc-label" for="sc-lic">Trade Licence / White Card No. (optional)</label>
+            <input class="sc-input" type="text" id="sc-lic"
+              placeholder="e.g. EC-12345, WC-67890" maxlength="80" />
+          </div>
+
+          <div class="sc-group full">
+            <label class="sc-label" for="sc-ticket">Additional Tickets / Certs (optional)</label>
+            <input class="sc-input" type="text" id="sc-ticket"
+              placeholder="e.g. EWP, Confined Space, First Aid, Dogman" maxlength="120" />
+          </div>
+
+        </div>
+      </div>
+
+      <!-- AVAILABILITY CARD -->
+      <div class="sc-card">
+        <div class="sc-card-head">
+          <div class="sc-card-icon">📅</div>
+          <div>
+            <div class="sc-card-title">Weekly Availability</div>
+            <div class="sc-card-sub">Set your status and preferred site hours for each day</div>
+          </div>
+        </div>
+        <div class="sc-avail-wrap">
+          <table class="sc-avail-tbl">
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Status</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+              </tr>
+            </thead>
+            <tbody id="sc-avail-body">
+              <!-- Populated by app.js using DOM APIs — no HTML strings injected -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SUBMIT CARD -->
+      <div class="sc-submit-card">
+        <div class="sc-submit-head">
+          <div class="sc-submit-icon">📎</div>
+          <div>
+            <div class="sc-submit-title">Submit Your Availability</div>
+            <div class="sc-submit-sub">One click &mdash; file downloads, email opens ready to send</div>
+          </div>
+        </div>
+        <div class="sc-two-step">
+          <div class="sc-two-step-item">
+            <div class="sc-two-step-num">1</div>
+            <div class="sc-two-step-body">
+              <strong>File downloads automatically</strong>
+              <p>Your availability is packaged as a <code>.json</code> file and saved to your Downloads folder.</p>
+            </div>
+          </div>
+          <div class="sc-two-step-arrow">&#x2192;</div>
+          <div class="sc-two-step-item">
+            <div class="sc-two-step-num">2</div>
+            <div class="sc-two-step-body">
+              <strong>Email opens &mdash; attach &amp; send</strong>
+              <p>Your email app opens addressed to your site manager. Attach the file and send.</p>
+            </div>
+          </div>
+        </div>
+        <button class="sc-cta" id="sc-submit-btn">
+          <span>📎</span><span>Download File &amp; Open Email</span>
+        </button>
+        <button class="sc-share-btn" id="sc-share">Share JSON</button>
+        <div class="sc-cta-note">
+          Your data stays on your device &nbsp;&middot;&nbsp; No server &nbsp;&middot;&nbsp; No tracking<br>
+          If your email app doesn&#8217;t open automatically, attach the downloaded file manually.
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ── SUCCESS SCREEN ── -->
+  <div class="sc-success" id="sc-success">
+    <div class="sc-success-ring">🎉</div>
+    <h2>File Downloaded!</h2>
+    <p>Your availability file has been saved to your Downloads folder. Now attach it to the
+      email that just opened and send it to your site manager.</p>
+    <div class="sc-success-steps">
+      <h3>Next Steps</h3>
+      <div class="sc-success-step">
+        <div class="sc-success-step-num">1</div>
+        <div>Find <strong id="sc-filename-display" class="sc-filename"></strong> in your <strong>Downloads</strong> folder.</div>
+      </div>
+      <div class="sc-success-step">
+        <div class="sc-success-step-num">2</div>
+        <div>Switch to your <strong>email app</strong> &mdash; the message to your site manager should be open.</div>
+      </div>
+      <div class="sc-success-step">
+        <div class="sc-success-step-num">3</div>
+        <div>Click the <strong>attachment icon</strong>, locate the downloaded file, and attach it.</div>
+      </div>
+      <div class="sc-success-step">
+        <div class="sc-success-step-num">4</div>
+        <div>Click <strong>Send</strong>. Your manager will import your availability into the Trades &amp; Field Services Roster.</div>
+      </div>
+    </div>
+    <button class="sc-btn-ghost" id="sc-reset-btn">&#x21A9; Edit &amp; Resubmit</button>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="sc-footer">
+    <span>Trades &amp; Field Services Roster &middot; Worker Availability Form v2.0</span>
+    <span>No data leaves this page until you send the email</span>
+  </footer>
+
+  <!-- ── TOASTS ── -->
+  <div id="sc-toasts"></div>
+
+  <!-- Scripts -->
+  <script src="./js/app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("./service-worker.js");
+    }
+  </script>
+
+  <div class="pbp-brand">ProductivityByPhil &mdash; Trades &amp; Field Services Edition</div>
+
+</body>
+</html>
